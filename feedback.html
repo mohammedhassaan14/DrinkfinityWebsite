@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Drinkfinity</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('feedback.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .feedback-form {
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+            border-radius: 8px;
+            width: 50%;
+            color: white;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #f8b400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="productspage.html">Products</a></li>
+            <li><a href="feedback.html">Feedback</a></li> <!-- Link to Feedback Page -->
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="feedback-form">
+        <h2>We Value Your Feedback</h2>
+        <form action="https://formspree.io/f/mrbgvnqo" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="mohammedhassaanvt@gmail.com" required>
+            <textarea name="message" rows="5" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <!-- Instagram Button -->
+    <div class="instagram-button">
+        <a href="https://www.instagram.com/hassaan_.28" target="_blank" class="green-button">Instagram</a>
+    </div>
+
+</body>
+</html>

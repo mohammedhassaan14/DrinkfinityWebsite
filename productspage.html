@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkfinity - Products</title>
+    <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body class="productspage">
+        <div class="container">
+            <!-- Navigation Bar -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productspage.html">Products</a></li>
+                    <li><a href="feedback.html">Feedback</a></li> <!-- Link to feedback page -->
+                    <li><a href="aboutus.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+        
+        // Initialize the cart as an empty array
+        let cart = [];
+
+        // Function to update the cart display
+        function updateCart() {
+            let totalBottles = 0;
+            let totalPrice = 0;
+            let cartItems = '';
+
+            // Calculate total bottles, total price, and create the list of items
+            cart.forEach(item => {
+                totalBottles += item.quantity;
+                totalPrice += item.quantity * item.price;
+                cartItems += `<li>${item.name} - ₹${item.price} x ${item.quantity}</li>`;
+            });
+
+            // Update cart display
+            document.getElementById('total-bottles').textContent = `Total Bottles: ${totalBottles}`;
+            document.getElementById('total-price').textContent = `Total Price: ₹${totalPrice}`;
+            document.getElementById('cart-items').innerHTML = cartItems;
+        }
+
+        // Function to handle adding products to the cart
+        function addToCart(productName, productPrice) {
+            // Check if the product is already in the cart
+            let existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+                // If the product already exists, increase the quantity
+                existingProduct.quantity++;
+            } else {
+                // If the product doesn't exist, add it to the cart with quantity 1
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                });
+            }
+
+            // Update the cart display
+            updateCart();
+        }
+
+        // Function to handle the purchase action
+        function handlePurchase() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add some products to the cart.');
+            } else {
+                alert('Thank you for your purchase! Your order has been placed.');
+                // Clear the cart after purchase
+                cart = [];
+                updateCart();
+            }
+        }
+
+        // Wait until the page is fully loaded before adding event listeners
+        window.onload = function() {
+            // Set the purchase button event listener
+            document.getElementById('purchase-button').addEventListener('click', handlePurchase);
+
+            // Set up "Add to Cart" buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.getAttribute('data-name');
+                    const productPrice = parseInt(this.getAttribute('data-price'));
+                    addToCart(productName, productPrice);
+                });
+            });
+        };
+    </script>
+</head>
+<body>
+
+    <!-- Product section -->
+    <div class="product-container">
+        <!-- Product 1: Litchi Juice -->
+        <div class="product-box">
+            <img src="Litchi.jpg" class="product-image" alt="Litchi Juice">
+            <div class="product-info">
+                <h3>Litchi Juice</h3>
+                <p>₹70 (1 Bottle)</p>
+                <p>A delicious Litchi juice.</p>
+                <button class="add-to-cart" data-name="Litchi Juice" data-price="70">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2: Natural Litchi Juice -->
+        <div class="product-box">
+            <img src="Naturallitchi.jpg" class="product-image" alt="Natural Litchi Juice">
+            <div class="product-info">
+                <h3>Natural Litchi Juice</h3>
+                <p>₹60 (1 Bottle)</p>
+                <p>A refreshing natural Litchi juice.</p>
+                <button class="add-to-cart" data-name="Natural Litchi Juice" data-price="60">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3: Strawberry Juice -->
+        <div class="product-box">
+            <img src="strawberry.jpg" class="product-image" alt="Strawberry Juice">
+            <div class="product-info">
+                <h3>Strawberry Juice</h3>
+                <p>₹50 (1 Bottle)</p>
+                <p>A fresh Strawberry juice.</p>
+                <button class="add-to-cart" data-name="Strawberry Juice" data-price="50">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4: Mango Juice -->
+        <div class="product-box">
+            <img src="Mango.jpg" class="product-image" alt="Mango Juice">
+            <div class="product-info">
+                <h3>Mango Juice</h3>
+                <p>₹50 (1 Bottle)</p>
+                <p>A tropical Mango juice.</p>
+                <button class="add-to-cart" data-name="Mango Juice" data-price="50">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 5: Blueberry Juice -->
+        <div class="product-box">
+            <img src="Blueberry.jpg" class="product-image" alt="Blueberry Juice">
+            <div class="product-info">
+                <h3>Blueberry Juice</h3>
+                <p>₹50 (1 Bottle)</p>
+                <p>A tangy Blueberry juice.</p>
+                <button class="add-to-cart" data-name="Blueberry Juice" data-price="50">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 6: Mix Juice Combo -->
+        <div class="product-box">
+            <img src="mixjuice.jpg" alt="Mix Juice Combo" class="product-image">
+            <div class="product-info">
+                <h3>Mix Juice Combo</h3>
+                <p>₹150 (3 Bottles)</p>
+
+                <button class="add-to-cart" data-name="Mix Juice Combo" data-price="150">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 7: Special Mix Juice Combo -->
+        <div class="product-box">
+            <img src="specialmix.jpg" alt="Special Mix Juice Combo" class="product-image">
+            <div class="product-info">
+                <h3>Special Mix Juice Combo</h3>
+                <p>₹400 (6 Bottles)</p>
+                <button class="add-to-cart" data-name="Special Mix Juice Combo" data-price="400">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 8: Healthy Juice -->
+        <div class="product-box">
+            <img src="Healthyjuice.jpg" alt="Healthy Juice" class="product-image">
+            <div class="product-info">
+                <h3>Healthy Juice</h3>
+                <p>₹80 (1 Bottle)</p>
+                <button class="add-to-cart" data-name="Healthy Juice" data-price="80">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 9: Orange Juice -->
+        <div class="product-box">
+            <img src="orangejuice.jpg" alt="Orange Juice" class="product-image">
+            <div class="product-info">
+                <h3>Orange Juice</h3>
+                <p>₹50 (1 Bottle)</p>
+                <button class="add-to-cart" data-name="Orange Juice" data-price="50">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+<!--Cart Info Section-->
+    <div id="cart-info">
+        <!--Billing Title-->
+        <div 
+        id="billing-title"><strong>Billing (Cash On Delivery)</strong></div>
+        <form id="orderForm">
+            <label for="address">Enter your address:</label>
+            <input type="text" id="address" name="address" required>
+        
+            <!-- Email Input Field -->
+            <div>
+                <strong>Your email: </strong>
+                <input type="email" id="user-email" value="officialboii05@gmail.com" placeholder="Enter your email">
+            </div>
+        
+            <!-- Cart Info (For displaying total bottles and price on the page) -->
+            <div id="cart-info">
+                <div id="total-bottles">Total Bottles: 0</div>
+                <div id="total-price">Total Price: ₹0</div>
+                <ul id="cart-items"></ul>
+            </div>
+        
+            <!-- Purchase Button (Triggers email) -->
+            <button type="button" id="purchase-button">Place Order</button>
+        </form>
+        

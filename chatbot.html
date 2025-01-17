@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Drinkfinity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="productspage.html">Products</a></li>
+            <li><a href="feedback.html">Feedback</a></li> <!-- Link to feedback page -->
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li> <!-- New Link for Chatbot -->
+        </ul>
+
+    </nav>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message">
+                <p>Welcome to Drinkfinity Chatbot! How can I assist you today?</p>
+            </div>
+        </div>
+        <div class="question-buttons">
+            <button onclick="quickReply('Tell Me About Your Website?')">Tell Me About Your Website?</button>
+            <button onclick="quickReply('How Many Products Are There?')">How Many Products Are There?</button>
+            <button onclick="quickReply('Show Me The Menu?')">Show Me The Menu?</button>
+            <button onclick="quickReply('Hey, Chatbot!!')">Hey, Chatbot!!</button>
+            <button onclick="quickReply('What is Healthy Juice?')">What is Healthy Juice?</button>
+            <button onclick="quickReply('What is Special Mix Juice Combo?')">What is Special Mix Juice Combo?</button>
+            <button onclick="quickReply('Who is the owner of Drinkfinity?')">Who is the owner of Drinkfinity?</button>
+            <button onclick="quickReply('What is the most popular juice?')">What is the most popular juice?</button>
+            <button onclick="quickReply('Where do I purchase products?')">Where do I purchase products?</button>
+        </div>
+        <input type="text" id="user-input" placeholder="Ask me anything about our products..." />
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+    <script src="chatbot.js"></script>
+</body>
+</html>
